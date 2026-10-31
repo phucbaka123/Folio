@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: file:; media-src file:; frame-src file:; style-src 'self' 'unsafe-inline'">
+  <title>Files</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="titlebar">
+    <div class="tab">
+      <img class="logo" src="logo.svg" alt="">
+      <span id="tabLabel">Files</span>
+      <button class="tabclose" id="tabClose" aria-label="Close tab"></button>
+    </div>
+    <button class="tb" id="newTab" aria-label="New tab" title="New tab"></button>
+    <button class="tb" id="tabMenu" aria-label="Menu" title="Menu"></button>
+    <div class="drag"></div>
+    <button class="tb" id="wMin" aria-label="Minimize"></button>
+    <button class="tb" id="wMax" aria-label="Maximize"></button>
+    <button class="tb close" id="wClose" aria-label="Close"></button>
+  </header>
+
+  <div class="main">
+    <nav class="side" id="side" aria-label="Sidebar"></nav>
+
+    <section class="content">
+      <div class="navrow">
+        <button class="tb" id="bBack" aria-label="Back" title="Back"></button>
+        <button class="tb" id="bFwd" aria-label="Forward" title="Forward"></button>
+        <button class="tb" id="bUp" aria-label="Up" title="Up"></button>
+        <button class="tb" id="bRefresh" aria-label="Refresh" title="Refresh"></button>
+        <span class="gap"></span>
+        <div class="pill path"><span id="pathIcon"></span><div class="crumbs" id="crumbs" title="Click to type a path"></div>
+          <input id="addr" class="addr" type="text" list="addrList" spellcheck="false" autocomplete="off" aria-label="Address" hidden>
+          <datalist id="addrList"></datalist></div>
+        <label class="pill search"><span id="searchIcon"></span><input id="search" type="text" placeholder="Search"></label>
+      </div>
+
+      <div class="cmdrow" id="cmdrow">
+        <button class="tbt" id="cNew" aria-haspopup="menu"></button>
+        <span class="vsep"></span>
+        <button class="tb" id="cCut" aria-label="Cut" title="Cut"></button>
+        <button class="tb" id="cCopy" aria-label="Copy" title="Copy"></button>
+        <button class="tb" id="cPaste" aria-label="Paste" title="Paste"></button>
+        <button class="tb" id="cRename" aria-label="Rename" title="Rename (F2)"></button>
+        <button class="tb" id="cShare" aria-label="Show in folder" title="Show in folder"></button>
+        <button class="tb" id="cDelete" aria-label="Delete" title="Delete"></button>
+        <span class="vsep"></span>
+        <button class="tbt" id="cSort" aria-haspopup="menu"></button>
+        <button class="tbt" id="cView" aria-haspopup="menu"></button>
+        <span class="vsep"></span>
+        <button class="tb" id="cMore" aria-label="More" title="More"></button>
+        <span class="flex"></span>
+        <button class="tbt" id="cPreview" aria-pressed="false"></button>
+      </div>
+
+      <div class="body">
+        <div class="files grid" id="files" tabindex="-1"></div>
+        <aside class="preview" id="preview" hidden></aside>
+      </div>
+      <div class="status" id="status"></div>
+    </section>
+  </div>
+
+  <script src="icons.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

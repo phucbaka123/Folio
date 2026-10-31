@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.log
+
+# TitleBarStyler build output and debug log
+tools/TitleBarStyler/bin/
+
+# local tooling
+.claude/
+graphify-out/

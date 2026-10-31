@@ -1,0 +1,61 @@
+{
+  "name": "folio",
+  "productName": "Folio",
+  "version": "1.0.0",
+  "description": "A fast, good-looking file manager for Windows with a custom title bar, folder tree sidebar, live preview, drag and drop and undo.",
+  "main": "src/main.js",
+  "license": "MIT",
+  "author": "Folio contributors",
+  "homepage": "https://github.com/OWNER/folio",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OWNER/folio.git"
+  },
+  "scripts": {
+    "start": "node scripts/start.js",
+    "icons": "node scripts/make-icons.js",
+    "pack": "electron-builder --win --dir",
+    "dist": "electron-builder --win --publish never"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^26.18.0",
+    "png-to-ico": "^3.0.2",
+    "sharp": "^0.35.5"
+  },
+  "build": {
+    "appId": "com.folio.files",
+    "productName": "Folio",
+    "copyright": "Copyright (c) 2026 Folio contributors",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "build/icon.png",
+      "build/icon.ico",
+      "package.json"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "artifactName": "Folio-Setup-${version}.${ext}",
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Folio",
+      "deleteAppDataOnUninstall": false
+    },
+    "portable": {
+      "artifactName": "Folio-${version}-portable.${ext}"
+    }
+  }
+}
